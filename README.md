@@ -15,8 +15,8 @@ Flutter Clipper
   @override
   Path getClip(Size size) {
     Path path = Path();
-    final double _xScaling = size.width / 414;
-    final double _yScaling = size.height / 896;
+    final double _xScaling = size.width / 1920;
+    final double _yScaling = size.height / 1080;
     path.lineTo(-16.2849 * _xScaling,32.4487 * _yScaling);
     path.cubicTo(-7.48811 * _xScaling,39.6483 * _yScaling,2.93924 * _xScaling,44.2862 * _yScaling,13.5883 * _xScaling,48.263 * _yScaling,);
     path.cubicTo(47.9073 * _xScaling,61.0791 * _yScaling,53.7298 * _xScaling,72.9415 * _yScaling,186.252 * _xScaling,70.0125 * _yScaling,);
@@ -33,5 +33,5 @@ Flutter Clipper
     path.cubicTo(-117.15 * _xScaling,-60.1958 * _yScaling,-48.2091 * _xScaling,6.32067 * _yScaling,-16.2849 * _xScaling,32.4487 * _yScaling,);
     path.cubicTo(-16.2849 * _xScaling,32.4487 * _yScaling,-16.2849 * _xScaling,32.4487 * _yScaling,-16.2849 * _xScaling,32.4487 * _yScaling,);
     return path;
-  } 
+  }
 ```
