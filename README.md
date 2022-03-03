@@ -1,14 +1,17 @@
 # Jean-Luc Herbst's portfolio
 
-###A Flutter Web project which should later be deployed to https://jean-luc.dev
+###### A Flutter Web project which should later be deployed to https://jean-luc.dev
 
-Figma design Study: 
+Figma design Study:
+
 https://www.figma.com/file/ldcI2ItZxrdFVaADQOREjT/Untitled?node-id=0%3A1
 
+## Bezier Curve 1
 ![Bezier Curve 1](https://user-images.githubusercontent.com/23015745/156585714-fe4c9af8-9269-4566-9bc7-f98f0c22e486.svg)
 
-
-\Flutter Clipper
+## Clipper for Bezier Curve 1
+```
+Flutter Clipper
   @override
   Path getClip(Size size) {
     Path path = Path();
@@ -30,5 +33,5 @@ https://www.figma.com/file/ldcI2ItZxrdFVaADQOREjT/Untitled?node-id=0%3A1
     path.cubicTo(-117.15 * _xScaling,-60.1958 * _yScaling,-48.2091 * _xScaling,6.32067 * _yScaling,-16.2849 * _xScaling,32.4487 * _yScaling,);
     path.cubicTo(-16.2849 * _xScaling,32.4487 * _yScaling,-16.2849 * _xScaling,32.4487 * _yScaling,-16.2849 * _xScaling,32.4487 * _yScaling,);
     return path;
- 
-  }\
+  } 
+```
