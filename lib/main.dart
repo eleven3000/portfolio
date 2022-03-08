@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
             children: [
               Flexible(flex: 1, child: Container()),
               Expanded(
-                  flex: 5,
+                  flex: 4,
                   child: Column(
                     children: [
                       Padding(
