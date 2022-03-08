@@ -36,10 +36,10 @@ jobs:
           destination-github-username: 'eleven3000'
           destination-repository-name: 'eleven3000.github.io'
           target-branch: portfolio-develop
-      - name: Merge master back to dev
+      - name: Merge back into main
         run: |
           git fetch --unshallow
           git checkout portfolio-develop
           git pull
-          git merge --no-ff main -m "Auto-merge portfolio commit in main"
+          git merge --no-ff main -m "Auto-merge portfolio commit into main"
           git push
