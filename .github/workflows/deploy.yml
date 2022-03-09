@@ -27,19 +27,12 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release --web-renderer html
       
-      - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
+      - name: Pushes build to page
+        uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.WORKFLOW }}
+          API_TOKEN_GITHUB: ${{ secrets.WORKLFOW }}
         with:
-          source-directory: 'build/web'
-          destination-github-username: 'eleven3000'
-          destination-repository-name: 'eleven3000.github.io'
-          target-branch: portfolio-develop
-      - name: Merge back into main
-        run: |
-          git fetch --unshallow
-          git checkout portfolio-develop
-          git pull
-          git merge --no-ff main -m "Auto-merge portfolio commit into main"
-          git push
+          source_file: 'build/web'
+          destination_repo: 'eleven3000/eleven3000.github.io'
+          user_email: 'eleven300011@gmail.com'
+          user_name: 'eleven3000'

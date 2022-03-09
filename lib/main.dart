@@ -79,39 +79,47 @@ class BulletPoint extends StatefulWidget {
 
 class _BulletPointState extends State<BulletPoint> {
   var _hover = false;
+  final _beginSize = 24.0;
+  final _endSize = 28.0;
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-        text: TextSpan(children: [
-      TextSpan(
-        text: "- ",
-        style: Theme.of(context).textTheme.bodyMedium,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TweenAnimationBuilder<double>(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.linear,
+        tween: Tween<double>(
+            begin: _beginSize, end: _hover ? _endSize : _beginSize),
+        builder: (_, linkTextSize, __) => RichText(
+            text: TextSpan(children: [
+          TextSpan(
+            text: "- ",
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          TextSpan(
+              text: widget.name,
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                  fontSize: linkTextSize,
+                  decoration: (_hover) ? TextDecoration.underline : null),
+              onEnter: (_) => setState(() {
+                    _hover = true;
+                  }),
+              onExit: (_) => setState(() {
+                    _hover = false;
+                  }),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () => launch(widget.urlTarget)),
+          TextSpan(
+            text: ", ",
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          TextSpan(
+            text: widget.description,
+            style: Theme.of(context).textTheme.bodyMedium,
+          )
+        ])),
       ),
-      TextSpan(
-          text: widget.name,
-          style: (_hover)
-              ? Theme.of(context)
-                  .textTheme
-                  .labelMedium
-                  ?.copyWith(decoration: TextDecoration.underline)
-              : Theme.of(context).textTheme.labelMedium,
-          onEnter: (_) => setState(() {
-                _hover = true;
-              }),
-          onExit: (_) => setState(() {
-                _hover = false;
-              }),
-          recognizer: TapGestureRecognizer()
-            ..onTap = () => launch(widget.urlTarget)),
-      TextSpan(
-        text: ", ",
-        style: Theme.of(context).textTheme.bodyMedium,
-      ),
-      TextSpan(
-        text: widget.description,
-        style: Theme.of(context).textTheme.bodyMedium,
-      )
-    ]));
+    );
   }
 }
