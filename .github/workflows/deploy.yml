@@ -30,7 +30,7 @@ jobs:
       - name: Pushes build to page
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.WORKLFOW }}
+          API_TOKEN_GITHUB: ${{ secrets.WORKFLOW }}
         with:
           source_file: 'build/web'
           destination_repo: 'eleven3000/eleven3000.github.io'
