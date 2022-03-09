@@ -32,7 +32,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.WORKFLOW }}
         with:
-          source_file: 'build/web/'
+          source_file: 'build/web/*'
           destination_repo: 'eleven3000/eleven3000.github.io'
           user_email: 'eleven300011@gmail.com'
           user_name: 'eleven3000'
